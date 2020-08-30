@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- html 结构 -->
+    <div id="mask" >
+        <div class="center" >
+            <h2 class="title">
+                <img src="./images/applogo.png" alt="" width="34">
+                好帮手good
+            </h2>
+
+            <img :src="imgArr[index]" alt="" width="200">
+            <a href="javascript:void(0)" v-show="index>0" @click="prev" class="left">
+                <img src="./images/left.png">
+            </a>
+            <a href="javascript:void(0)" v-show="index<imgArr.length - 1" @click="next" class="right">
+                <img src="./images/right.png">
+            </a>
+        </div>
+    </div>
+
+    <!-- 开发版本，包含了有帮助的命令警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        // 创建Vue对象示例
+
+        var app = new Vue({
+            el: "#mask",
+            data: {
+                imgArr: [
+                    "./images/help_1.webp",
+                    "./images/help_3.webp",
+                    "./images/help_2.webp",
+                    "./images/help_4.webp"
+                ],
+                index:0
+            },
+            methods:{
+                prev:function(){
+                    this.index--
+                },
+                next:function(){
+                    this.index++
+                }
+            }
+
+        })
+    </script>
+</body>
+
+</html>

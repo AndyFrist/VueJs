@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- html 结构 -->
+
+    <div id="app">
+        <input type="button" value="切换显示" @click="clickbtn">
+        <p v-if="isShow">德尔玛西万岁</p>
+        <p v-show="isShow">德尔玛西万岁</p>
+        <p v-show="age>18">成年人</p>
+        <!-- 频繁切换的元素用v-show ,因为v-if是自己操作dom的，对性能的消耗较大 -->
+    </div>
+    <!-- 开发版本，包含了有帮助的命令警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        // 创建Vue对象示例
+        var app = new Vue({
+            el: "#app",
+            data: {
+                isShow : false,
+                age:19
+            },
+            methods: {
+                clickbtn: function () {
+                    this.isShow = !this.isShow
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>

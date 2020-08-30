@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- html 结构 -->
+    <div id="app">
+        <input type="button" @click="add" value="增加">
+        <input type="button" @click="sub" value="移除">
+
+        <ul>
+            <li v-for="(it ,index) in arr">
+               {{it}}是{{index + 1}}号
+            </li>
+        </ul>
+        <h3 v-for="obj in arrObj">
+            {{obj.name}}今年{{obj.age}}岁
+        </h3>
+    </div>
+
+    <!-- 开发版本，包含了有帮助的命令警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+    // 创建Vue对象示例
+var app = new Vue({
+    el:"#app",
+    data:{
+        arr:["张三","李四","王二"],
+        arrObj:[
+            {name:"张三",age:12},
+            {name:"李四",age:14},
+            {name:"王二",age:19}
+        ]
+    },
+    methods:{
+        add:function(){
+            this.arrObj.push({name:"麻子",age:23})
+        },
+        sub:function(){
+            this.arrObj.shift()
+        }
+    }
+})
+    </script>
+</body>
+
+</html>

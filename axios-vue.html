@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- html 结构 -->
+    <div id="app">
+        <input type="button" value="刷新笑话" @click="getJoke">
+        <p>{{joke}}</p>
+    </div>
+
+    <!-- 开发版本，包含了有帮助的命令警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 引入axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        // 创建Vue对象示例
+        var app = new Vue({
+            el: "#app",
+            data: {
+                joke: "今晚阳光明媚"
+            },
+            methods: {
+                getJoke: function () {
+                    var that = this;
+                    axios.get("https://autumnfish.cn/api/joke").then(function (response) {
+                        that.joke = response.data
+                    }, function (err) { })
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

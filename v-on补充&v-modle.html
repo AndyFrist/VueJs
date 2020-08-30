@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- html 结构 -->
+    <div id="app">
+        <input type="button" value="双击666" @click="doit('老铁','666')">
+        <input type="text" name="123" id="input" @keyup.enter="saybey" 
+        style="background-color:#00666666" v-model="message">
+        <!-- v-modle指令作用是表单元素的值和message双向绑定 -->
+        <h2>{{message}}</h2>
+    </div>
+
+    <!-- 开发版本，包含了有帮助的命令警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+    // 创建Vue对象示例
+var app = new Vue({
+    el:"#app",
+    data:{
+message:"Vue 一统天下"
+    },
+    methods:{
+        doit:function(p1,p2){
+            alert(p1+p2)
+        },
+        saybey:function(){
+            alert("bey!bey")
+        }
+    }
+})
+    </script>
+</body>
+
+</html>
