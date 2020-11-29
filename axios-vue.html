@@ -13,7 +13,17 @@
     <!-- html 结构 -->
     <div id="app">
         <input type="button" value="刷新笑话" @click="getJoke">
+        <input type="button" value="post注册" @click="regerst">
         <p>{{joke}}</p>
+        <div>
+            <ul>
+                <li v-for="(item,index) in list">
+                    <div>
+                        {{index + 1 + item}}
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
 
     <!-- 开发版本，包含了有帮助的命令警告 -->
@@ -25,14 +35,23 @@
         var app = new Vue({
             el: "#app",
             data: {
-                joke: "今晚阳光明媚"
+                joke: "今晚阳光明媚",
+                list:["今晚阳光明媚","今晚阳光明媚"]
             },
             methods: {
                 getJoke: function () {
                     var that = this;
-                    axios.get("https://autumnfish.cn/api/joke").then(function (response) {
-                        that.joke = response.data
+                    //https://autumnfish.cn/api/joke  获取一条数据的接口
+                    axios.get("https://autumnfish.cn/api/joke/list?num=490").then(function (response) {
+                        that.list = response.data.jokes
                     }, function (err) { })
+                },
+                regerst:function () {
+                    axios.post("https://autumnfish.cn/api/user/reg",{username:"德玛西亚"}).then(function (value) {
+                        console.log(value)
+                    },function (reason) {
+                        console.log(reason)
+                    })
                 }
             }
         })
