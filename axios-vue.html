@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        [v-cloak]{
+            display:none;
+        }
+    </style>
 </head>
 
 <body>
@@ -14,9 +19,9 @@
     <div id="app">
         <input type="button" value="刷新笑话" @click="getJoke">
         <input type="button" value="post注册" @click="regerst">
-        <p>{{joke}}</p>
+        <p v-cloak>{{joke}}</p>
         <div>
-            <ul>
+            <ul v-cloak>
                 <li v-for="(item,index) in list">
                     <div>
                         {{index + 1 + item}}

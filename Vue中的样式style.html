@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>三种内联样式</title>
+
+</head>
+
+<body>
+
+    <!-- html 结构 -->
+
+   <div id="app">
+       <!--第一种-->
+       <h1 :style="{color:'red','font-weight':200}">我们都有一个家名字叫中国</h1>
+
+       <!--第二种-->
+       <h1 :style="[style22,style11]">我们都有一个家名字叫中国</h1>
+
+       <!--第三种-->
+       <h1 :style="style11">我们都有一个家名字叫中国</h1>
+   </div>
+    <!-- 开发版本，包含了有帮助的命令警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+    // 创建Vue对象示例
+
+        var vm = new Vue({
+            el: '#app',
+            data:{
+                flag:true,
+                style11:{color:'red','font-weight':200},
+                style22:{'font-style':'italic'}
+            }
+        })
+    </script>
+</body>
+
+</html>

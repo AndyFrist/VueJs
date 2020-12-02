@@ -16,7 +16,7 @@ destory
 #常见指令有
 v-text,v-html,v-on
 v-show，v-if，v-bind，v-else（是否操纵dom元素是取决于前面使用的是v-show，还是v-if）
-v-for，v-model
+v-for，v-model,v-cloak
 
        
 v-text 设置标签的文本值，注意v-text会全部覆盖标签内的内容
@@ -49,8 +49,20 @@ v-model 获取和设置表单元素的值（双向绑定数据）
     绑定的数据会和表单元素相关联
     绑定的数据《==》表单元素的值
     
-本地应用小案例：记事本    
+    
+v-cloak 可以解决插值表达式渲染闪烁的问题
+默认v-text没有闪烁问题，但是v-text会把标签里的内容全部覆盖掉
+    
+本地应用小案例：记事本   
 
+
+##事件修饰符
+ .stop 阻止自己的事件不再冒泡传递给父组件，不再由子控件传给父控件。
+ .prevent 阻止默认事件，比如<a href> 只触发点击事件，不会跳转。
+ .capture 实现捕获触发事件的机制，说白了就是让事件先传父组件再传给子组件
+.self 被修饰的子元素里，实现只有点击当前元素时候，才会触发事件处理函数，没有点中不会触发。
+只会阻止自己的冒泡行为
+.once 只触发一次 
 ##axios功能强大的网络请求库
 引入<script src="https://umpkg.com/axios/dist/axios.min.js"></script>
 axios.get(地址：？key=value&key=value).then(function(response){},function(err){})

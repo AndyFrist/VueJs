@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<div id="app">
+    <input type="button" value="跑" @click="gogo">
+    <input type="button" value="停" @click="stop">
+    <h1 v-text="tomname"></h1>
+    <a href="http://www.baidu.com" @click.prevent="baidu">百度</a>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+             interval :null,
+            tomname:"我们的大中国呀！好大的一个家"
+        },
+        methods:{
+            gogo:function(){
+                if (this.interval) {
+                    return
+                }
+
+                this.interval = setInterval(()=>{
+                    const star = this.tomname.substring(0, 1);
+                    const end = this.tomname.substring(1);
+                    this.tomname = end + star;
+                },300);
+
+            },
+            stop:function(){
+                console.log("9999")
+                clearInterval(this.interval);
+                this.interval = null
+            },
+            baidu(){
+                console.log("百度吧")
+            }
+        }
+    })
+</script>
+</body>
+</html>
