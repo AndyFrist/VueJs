@@ -7,6 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>三种内联样式</title>
 
+
+    <style>
+        .red{
+            color: red;
+        }
+        .size{
+            size: A4;
+        }
+        .active{
+            letter-spacing: 0.5em;
+        }
+    </style>
 </head>
 
 <body>
@@ -22,6 +34,11 @@
 
        <!--第三种-->
        <h1 :style="style11">我们都有一个家名字叫中国</h1>
+
+        <!--第四种-->
+       <h1 :style="!flag ? {'color':'#000'} : {'color': '#999'}">我们都有一个家名字叫中国第四种</h1>
+
+
    </div>
     <!-- 开发版本，包含了有帮助的命令警告 -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>

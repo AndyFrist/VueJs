@@ -20,6 +20,7 @@
     </div>
     <!-- 开发版本，包含了有帮助的命令警告 -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
     <script>
     // 创建Vue对象示例
     var app = new Vue({
@@ -33,9 +34,18 @@
                 this.isshow = !this.isshow
             },
             addAge:function(){
-                this.age ++
-            }
-        }
+                this.age ++;
+                this.ready();
+            },
+            ready(){
+                var cip = returnCitySN["cip"];
+                console.log(cip);//cip就是本机ip地址
+            },
+        },
+        mounted(){
+            this.ready();
+        },
+
     })
 
     </script>

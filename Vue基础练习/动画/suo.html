@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Vue过渡与循环切换和放大缩小</title>
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <style>
+
+
+        .animat {
+            position: relative;
+            animation: mymove 3s infinite;
+            animation-direction: alternate; /*轮流反向播放动画。*/
+            animation-timing-function: ease-in-out; /*动画的速度曲线*/
+            -webkit-animation: mymove 3s infinite; /*Safari and Chrome*/
+            -webkit-animation-direction: alternate; /*轮流反向播放动画。*/
+            -webkit-animation-timing-function: ease-in-out; /*动画的速度曲线*/
+            animation-iteration-count:1;
+        }
+
+        @keyframes mymove {
+            0% {
+                transform: scale(1); /*开始为原始大小*/
+            }
+            25% {
+                transform: scale(1.2); /*放大1.1倍*/
+            }
+            50% {
+                transform: scale(1);
+            }
+            75% {
+                transform: scale(1.2);
+            }
+        }
+
+        @-webkit-keyframes mymove {
+            0% {
+                transform: scale(1);
+            }
+            25% {
+                transform: scale(1.2);
+            }
+            50% {
+                transform: scale(1);
+            }
+            75% {
+                transform: scale(1.2);
+            }
+        }
+
+        .bounce-enter-active {
+            animation: bounce-in 1s;
+        }
+
+        .bounce-leave-active {
+            animation: bounce-in 1s reverse;
+        }
+
+        @keyframes bounce-in {
+            0% {
+                transform: scale(1.5);
+            }
+            50% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.5);
+            }
+        }
+
+        .ready_btn {
+            height: 35px;
+            width: 100px;
+            background: blue;
+            text-align: center;
+            line-height: 35px;
+            margin-left: 200px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+<div id="databinding">
+    <transition name="bounce">
+        <img src="https://himg.bdimg.com/sys/portraitn/item/0fb2d0ecd0a1c5f4379e28"
+             class="animat"
+             style="width: 30px;height: 30px;">
+
+    </transition>
+    <div  class="ready_btn"
+    onclick="this.show = !this.show;">我准备好了!</div>
+</div>
+<script type="text/javascript">
+    new Vue({
+        el: "databinding",
+    data: {
+            show:false
+    },
+    methods:{
+        changeSHow(){
+           console.log("111111111111111111111")
+
+        }
+
+    }
+    })
+</script>
+</body>
+</html>

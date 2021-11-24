@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>类选择器</title>
+    <style>
+        .box{
+            color: #00f;
+            background-color: #ff0;
+        }
+        .mis{
+            font-size: 34px;
+        }
+    </style>
+</head>
+<body>
+<!--
+特点是
+1谁调用，谁生效
+2一个标签可以调用多个类选择器
+3多个标签可以调用同一个选择器
+-->
+<div>
+    <div class="box">类选择器box</div>
+    <div class="mis">类选择器mis</div>
+    <div class="box mis">类选择器box mis</div>
+
+</div>
+</body>
+</html>
