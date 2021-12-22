@@ -34,6 +34,8 @@
        <h1 :class="['active','size',{'red':flag}]">我们都有一个家名字叫中国</h1>
        <!--第五种,使用对象控制-->
        <h1 :class="{active :true, red: false,size: true}">我们都有一个家名字叫中国</h1>
+       <!--第六种,使用对象控制在data中-->
+       <h1 :class="styleClass">我们都有一个家名字叫中国</h1>
    </div>
     <!-- 开发版本，包含了有帮助的命令警告 -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -43,7 +45,8 @@
         var vm = new Vue({
             el: '#app',
             data:{
-                flag:true
+                flag:true,
+                styleClass:{active :true, red: true,size: true},
             }
         })
     </script>

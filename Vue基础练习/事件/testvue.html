@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+<script src="https://cdn.bootcss.com/vue/2.5.16/vue.js"></script>
+
+<!--.stop 阻止冒泡-->
+
+<!--.prevent 阻止默认事件-->
+
+<!--.capture 添加事件侦听器时使用事件捕获模式-->
+
+<!--.self 只当事件在该元素本身（比如不是子元素）触发时触发回调-->
+
+<!--.once 事件只触发一次-->
+<div id="APP">
+    <div style="display: inline-block;width: 220px;height: 220px;background-color: #1eacda" @click="outerClick">
+        <div style="display: inline-block;width: 120px;height: 120px;background-color: #1e23da" @click.self="middleClick">
+            <div style="display: inline-block;width: 60px;height: 60px;background-color: #1e90da" @click="innerClick">
+                {{name}}
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    new Vue({
+        el:'#APP',
+        data: {
+            name:'nick'
+        },
+        methods:{
+           innerClick(){
+               console.log("innerClick")
+           },
+           middleClick(){
+               console.log("middleClick")
+           },
+           outerClick(){
+               console.log("outerClick")
+           },
+
+        }
+    });
+</script>
+</body>
+
+</html>
